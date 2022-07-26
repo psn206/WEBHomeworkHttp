@@ -1,14 +1,8 @@
 package ru.netology;
 
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -28,7 +22,7 @@ public class Server {
             while (true) {
                 try {
                     final var socket = serverSocket.accept();
-                    threadPool.submit( new ServerRunnable(socket,validPaths));
+                    threadPool.submit( new ConnectionHandler(socket,validPaths));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
