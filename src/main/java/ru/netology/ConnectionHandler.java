@@ -10,12 +10,12 @@ import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class ServerRunnable implements Runnable {
+public class ConnectionHandler implements Runnable {
 
     private Socket socket;
     private List<String> validPaths;
 
-    public ServerRunnable(Socket socket,List<String> validPaths ){
+    public ConnectionHandler(Socket socket, List<String> validPaths ){
         this.socket =socket;
         this.validPaths = validPaths;
 
